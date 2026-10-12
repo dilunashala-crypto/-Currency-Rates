@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Lanka Travel & Tourism • Official Gateway</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tone.js for web audio ambient soundscapes -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        ceylon: {
+                            emerald: '#004D40',
+                            teal: '#00796B',
+                            gold: '#FFC837',
+                            brightGold: '#FFE066',
+                            cinnamon: '#8D5B4C',
+                            ocean: '#0288D1',
+                            sand: '#FDFBF7',
+                            dark: '#08120F',
+                            slate: '#122620'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Cinzel"', 'serif'],
+                        script: ['"Great Vibes"', 'cursive'],
+                    },
+                    boxShadow: {
+                        'ceylon-glow': '0 0 35px -5px rgba(255, 200, 55, 0.45)',
+                        'emerald-glow': '0 10px 30px -5px rgba(0, 121, 107, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #08120F;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00796B;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FFC837;
+        }
+
+        .glass-panel {
+            background: rgba(8, 18, 15, 0.85);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 200, 55, 0.25);
+        }
+
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(255, 200, 55, 0.6);
+            box-shadow: 0 12px 40px -10px rgba(0, 121, 107, 0.5);
+        }
+
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #FFF5C0 0%, #FFC837 50%, #D48800 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-bg-overlay {
+            background: radial-gradient(circle at center, rgba(8,18,15,0.3) 0%, rgba(8,18,15,0.85) 75%, rgba(8,18,15,1) 100%);
+        }
+
+        .logo-script {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        /* Weather Pulse Badge */
+        .weather-badge {
+            background: linear-gradient(135deg, rgba(2, 136, 209, 0.25) 0%, rgba(38, 166, 154, 0.25) 100%);
+            border: 1px solid rgba(255, 200, 55, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-ceylon-dark text-slate-100 font-sans antialiased selection:bg-ceylon-gold selection:text-ceylon-dark min-h-screen">
+
+    <!-- NAVIGATION HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="mainHeader">
+        <!-- Announcement & Security Ribbon -->
+        <div class="bg-gradient-to-r from-ceylon-emerald via-ceylon-teal to-ceylon-emerald text-xs py-1.5 px-4 text-center border-b border-ceylon-gold/30 flex justify-between items-center max-w-7xl mx-auto rounded-b-lg sm:px-8 shadow-lg">
+            <div class="flex items-center space-x-4 text-[11px] sm:text-xs font-medium">
+                <a href="https://wa.me/94727117111?text=Hello!%20I%20am%20inquiring%20via%20Sri%20Lanka%20Travel%20%26%20Tourism." target="_blank" rel="noopener noreferrer" class="hover:text-ceylon-gold transition flex items-center gap-1.5">
+                    <i class="fa-brands fa-whatsapp text-ceylon-gold text-sm"></i>
+                    <span>24/7 Direct WhatsApp: <strong>+94 72 711 7111</strong></span>
+                </a>
+                <a href="https://maps.app.goo.gl/njPTJAFHnewpwppy8?g_st=ac" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 text-amber-300 hover:text-ceylon-gold transition">
+                    <i class="fa-brands fa-google text-ceylon-gold"></i>
+                    <span><strong>Google Business Profile</strong></span>
+                </a>
+            </div>
+            <div class="flex items-center space-x-3 text-[11px]">
+                <button onclick="toggleAmbientSound()" id="soundBtn" class="hover:text-ceylon-gold transition flex items-center gap-1.5 bg-black/40 px-2.5 py-0.5 rounded-full border border-white/10">
+                    <i class="fa-solid fa-volume-xmark text-ceylon-gold" id="soundIcon"></i>
+                    <span id="soundLabel">Ceylon SFX</span>
+                </button>
+                <div class="flex items-center gap-1 bg-black/40 px-2 py-0.5 rounded-full border border-ceylon-gold/30">
+                    <i class="fa-solid fa-coins text-ceylon-gold"></i>
+                    <select id="currSelect" onchange="updateCurrencySymbol()" class="bg-transparent text-white font-bold cursor-pointer focus:outline-none">
+                        <option value="USD" class="bg-ceylon-dark text-white">$ USD</option>
+                        <option value="EUR" class="bg-ceylon-dark text-white">€ EUR</option>
+                        <option value="GBP" class="bg-ceylon-dark text-white">£ GBP</option>
+                        <option value="AUD" class="bg-ceylon-dark text-white">A$ AUD</option>
+                        <option value="LKR" class="bg-ceylon-dark text-white">Rs LKR</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Glass Navbar -->
+        <nav class="max-w-7xl mx-auto px-4 sm:px-8 py-2 my-1">
+            <div class="glass-panel rounded-2xl px-5 py-2.5 flex items-center justify-between shadow-2xl">
+                
+                <!-- BRAND LOGO -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="relative w-12 h-14 flex items-center justify-center filter drop-shadow-[0_2px_8px_rgba(255,200,55,0.4)] group-hover:scale-105 transition-transform duration-300">
+                        <svg viewBox="0 0 200 240" class="w-full h-full">
+                            <path d="M100 15 C130 35, 175 75, 160 140 C150 175, 115 195, 100 195 C80 195, 40 175, 35 130 C30 85, 70 25, 100 15 Z" fill="url(#mapGrad)" stroke="#FFC837" stroke-width="3" />
+                            <defs>
+                                <linearGradient id="mapGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#0288D1" />
+                                    <stop offset="35%" stop-color="#26A69A" />
+                                    <stop offset="70%" stop-color="#FFD54F" />
+                                    <stop offset="100%" stop-color="#0288D1" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M92 70 L108 70 L108 65 L100 48 L92 65 Z M85 92 C85 78, 115 78, 115 92 L85 92 Z M80 96 L120 96 L120 92 L80 92 Z" fill="#FFFFFF" />
+                            <path d="M65 140 Q70 120 85 125 Q95 122 105 130 Q110 125 115 132 L115 145 L110 145 L108 138 L98 138 L95 145 L88 145 L90 136 L78 136 L75 145 Z M62 135 C60 130 65 126 68 128" fill="#1A2A26" />
+                            <path d="M128 145 Q125 130 132 115" stroke="#3E2723" stroke-width="3" fill="none" />
+                            <path d="M132 115 Q120 108 112 112 M132 115 Q130 102 125 100 M132 115 Q142 105 148 110 M132 115 Q145 118 150 125" stroke="#1B5E20" stroke-width="2.5" fill="none" />
+                            <path d="M35 170 Q60 160 100 172 Q140 184 165 170 L160 185 Q130 195 100 185 Q70 175 35 185 Z" fill="#0277BD" />
+                            <path d="M100 200 Q90 190 75 202 Q90 215 100 205 Q110 215 125 202 Q110 190 100 200 Z" fill="#FFC837" />
+                            <path d="M100 195 Q93 205 100 215 Q107 205 100 215 Z" fill="#FFE066" />
+                        </svg>
+                    </div>
+
+                    <div>
+                        <span class="logo-script text-2xl font-bold tracking-wide text-gradient-gold block leading-none">Sri Lanka</span>
+                        <span class="text-[9px] tracking-[0.25em] text-white font-extrabold uppercase block mt-0.5 border-t border-ceylon-gold/40 pt-0.5">TRAVEL & TOURISM</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Links -->
+                <div class="hidden md:flex items-center space-x-7 text-xs uppercase tracking-widest font-bold text-gray-200">
+                    <a href="#destinations" class="hover:text-ceylon-gold transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-compass text-ceylon-gold"></i> Destinations
+                    </a>
+                    <a href="#tours" class="hover:text-ceylon-gold transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-route text-ceylon-gold"></i> Packages
+                    </a>
+                    <a href="#experiences" class="hover:text-ceylon-gold transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-camera-retro text-ceylon-gold"></i> Guest Stories
+                    </a>
+                    <a href="#planner" class="hover:text-ceylon-gold transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-sliders text-ceylon-gold"></i> Trip Calculator
+                    </a>
+                    <a href="#guide" class="hover:text-ceylon-gold transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-passport text-ceylon-gold"></i> Travel Guide
+                    </a>
+                </div>
+
+                <!-- Action Button & Inquiry Drawer Trigger -->
+                <div class="flex items-center space-x-3">
+                    <button onclick="toggleInquiryDrawer()" class="relative p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-ceylon-gold text-white transition hover:bg-white/10" title="Saved Inquiry Cart">
+                        <i class="fa-solid fa-suitcase-rolling text-base text-ceylon-gold"></i>
+                        <span id="inquiryBadge" class="absolute -top-1 -right-1 bg-ceylon-gold text-ceylon-dark text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center shadow">0</span>
+                    </button>
+                    
+                    <a href="https://wa.me/94727117111?text=Hello!%20I%20would%20like%20to%20plan%20a%20customized%20tour%20package%20in%20Sri%20Lanka." target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-ceylon-gold via-amber-400 to-ceylon-cinnamon text-ceylon-dark font-extrabold text-xs uppercase tracking-wider shadow-ceylon-glow hover:brightness-110 transition active:scale-95">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Us
+                    </a>
+
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-gray-300 hover:text-white text-lg">
+                        <i class="fa-solid fa-bars-staggered"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden md:hidden max-w-7xl mx-auto px-4">
+            <div class="glass-panel rounded-2xl p-6 space-y-4 text-sm font-bold uppercase tracking-wider text-gray-200 shadow-2xl">
+                <a href="#destinations" onclick="toggleMobileMenu()" class="block py-2 border-b border-white/10 hover:text-ceylon-gold"><i class="fa-solid fa-compass text-ceylon-gold mr-2"></i> Destinations</a>
+                <a href="#tours" onclick="toggleMobileMenu()" class="block py-2 border-b border-white/10 hover:text-ceylon-gold"><i class="fa-solid fa-route text-ceylon-gold mr-2"></i> Tour Packages</a>
+                <a href="#experiences" onclick="toggleMobileMenu()" class="block py-2 border-b border-white/10 hover:text-ceylon-gold"><i class="fa-solid fa-camera-retro text-ceylon-gold mr-2"></i> Real Guest Moments</a>
+                <a href="#planner" onclick="toggleMobileMenu()" class="block py-2 border-b border-white/10 hover:text-ceylon-gold"><i class="fa-solid fa-sliders text-ceylon-gold mr-2"></i> Trip Calculator</a>
+                <a href="#guide" onclick="toggleMobileMenu()" class="block py-2 hover:text-ceylon-gold"><i class="fa-solid fa-passport text-ceylon-gold mr-2"></i> Travel Essentials</a>
+                <a href="https://maps.app.goo.gl/njPTJAFHnewpwppy8?g_st=ac" target="_blank" rel="noopener noreferrer" class="block py-2 text-amber-300 hover:text-ceylon-gold"><i class="fa-brands fa-google text-ceylon-gold mr-2"></i> Google Business Review (5.0★)</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION WITH VERIFIED SIGIRIYA ROCK HERO IMAGE -->
+    <section class="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-4 sm:px-8 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- VERIFIED SIGIRIYA ROCK FORTRESS HERO IMAGE -->
+            <img id="heroImage" src="https://images.unsplash.com/photo-1588598198321-9735fd52455b?auto=format&fit=crop&w=2000&q=90" alt="Sigiriya Lion Rock Fortress Sri Lanka" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1588598198321-9735fd52455b?auto=format&fit=crop&w=2000&q=90';" class="w-full h-full object-cover object-center transition-all duration-1000 scale-105">
+            <div class="absolute inset-0 hero-bg-overlay"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto text-center space-y-8 mt-6">
+            <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full glass-panel text-xs font-black text-ceylon-gold uppercase tracking-widest shadow-md">
+                <span class="w-2.5 h-2.5 rounded-full bg-ceylon-gold animate-ping"></span>
+                Ayubowan • Welcome to Sri Lanka
+            </div>
+
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.1]">
+                Unearth The Wonder Of <br>
+                <span class="text-gradient-gold">Sri Lanka Travel & Tourism</span>
+            </h1>
+
+            <p class="text-sm sm:text-base md:text-lg text-gray-200 max-w-2xl mx-auto font-light leading-relaxed">
+                Your direct local gateway to ancient rock fortresses in Sigiriya, misty tea estates in Ella, wild leopard safaris in Yala, sacred temple blessings, and authentic seafood feasts on the coast.
+            </p>
+
+            <!-- Search Engine Bar -->
+            <div class="glass-panel p-4 sm:p-6 rounded-3xl max-w-4xl mx-auto shadow-2xl border border-ceylon-gold/30 text-left">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    
+                    <div class="bg-black/50 p-3 rounded-2xl border border-white/10 hover:border-ceylon-gold/50 transition">
+                        <label class="text-[10px] uppercase font-bold text-ceylon-gold tracking-wider block">Where to explore?</label>
+                        <select id="searchDest" class="w-full bg-transparent text-white font-semibold text-xs mt-1 focus:outline-none cursor-pointer">
+                            <option value="all" class="bg-ceylon-dark text-white">All Sri Lanka Regions</option>
+                            <option value="sigiriya" class="bg-ceylon-dark text-white">Sigiriya & Cultural Triangle</option>
+                            <option value="ella" class="bg-ceylon-dark text-white">Ella & Central Highlands</option>
+                            <option value="galle" class="bg-ceylon-dark text-white">Galle Fort & South Coast</option>
+                            <option value="yala" class="bg-ceylon-dark text-white">Yala & Udawalawe Wildlife</option>
+                            <option value="mirissa" class="bg-ceylon-dark text-white">Mirissa & Ocean Beaches</option>
+                        </select>
+                    </div>
+
+                    <div class="bg-black/50 p-3 rounded-2xl border border-white/10 hover:border-ceylon-gold/50 transition">
+                        <label class="text-[10px] uppercase font-bold text-ceylon-gold tracking-wider block">Experience Style</label>
+                        <select id="searchCategory" class="w-full bg-transparent text-white font-semibold text-xs mt-1 focus:outline-none cursor-pointer">
+                            <option value="all" class="bg-ceylon-dark text-white">All Travel Styles</option>
+                            <option value="heritage" class="bg-ceylon-dark text-white">Heritage & Temples</option>
+                            <option value="safari" class="bg-ceylon-dark text-white">Wildlife & Safaris</option>
+                            <option value="beach" class="bg-ceylon-dark text-white">Luxury Beach Escape</option>
+                            <option value="adventure" class="bg-ceylon-dark text-white">Highland Trekking & Trains</option>
+                        </select>
+                    </div>
+
+                    <div class="bg-black/50 p-3 rounded-2xl border border-white/10 hover:border-ceylon-gold/50 transition">
+                        <label class="text-[10px] uppercase font-bold text-ceylon-gold tracking-wider block">Duration</label>
+                        <select id="searchDuration" class="w-full bg-transparent text-white font-semibold text-xs mt-1 focus:outline-none cursor-pointer">
+                            <option value="any" class="bg-ceylon-dark text-white">Any Length</option>
+                            <option value="short" class="bg-ceylon-dark text-white">3 - 5 Days Express</option>
+                            <option value="medium" class="bg-ceylon-dark text-white">7 - 10 Days Classic</option>
+                            <option value="long" class="bg-ceylon-dark text-white">12 - 16 Days Grand Tour</option>
+                        </select>
+                    </div>
+
+                    <div class="flex items-center">
+                        <button onclick="executeTourSearch()" class="w-full h-full py-3.5 px-6 bg-gradient-to-r from-ceylon-gold to-ceylon-cinnamon hover:brightness-110 text-ceylon-dark font-extrabold text-xs uppercase tracking-widest rounded-2xl flex items-center justify-center gap-2 shadow-ceylon-glow transition active:scale-95">
+                            <i class="fa-solid fa-magnifying-glass"></i> Find Tours
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto text-center border-t border-white/10">
+                <div class="p-2">
+                    <div class="text-2xl font-black text-gradient-gold">100% Local</div>
+                    <div class="text-[10px] uppercase tracking-wider text-gray-400 font-bold">Chauffeur & Guides</div>
+                </div>
+                <div class="p-2">
+                    <div class="text-2xl font-black text-white">8 UNESCO</div>
+                    <div class="text-[10px] uppercase tracking-wider text-gray-400 font-bold">Heritage Landmarks</div>
+                </div>
+                <div class="p-2">
+                    <a href="https://maps.app.goo.gl/njPTJAFHnewpwppy8?g_st=ac" target="_blank" rel="noopener noreferrer" class="hover:underline">
+                        <div class="text-2xl font-black text-gradient-gold"><i class="fa-brands fa-google text-amber-400 text-lg mr-1"></i>Google Reviews</div>
+                        <div class="text-[10px] uppercase tracking-wider text-gray-400 font-bold">View our Google profile</div>
+                    </a>
+                </div>
+                <div class="p-2">
+                    <div class="text-2xl font-black text-white">Tailor-Made</div>
+                    <div class="text-[10px] uppercase tracking-wider text-gray-400 font-bold">Private Itineraries</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REAL GUEST EXPERIENCES & GALLERY SECTION -->
+    <section id="experiences" class="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div>
+                <span class="text-ceylon-gold text-xs font-extrabold uppercase tracking-widest block mb-2"><i class="fa-solid fa-heart text-amber-400 mr-1"></i> Sri Lanka Travel Gallery</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-white">Sri Lanka Travel Experiences</h2>
+            </div>
+            <p class="text-xs sm:text-sm text-gray-400 max-w-md mt-4 md:mt-0 leading-relaxed">
+                Explore Sri Lankan wildlife, culture, heritage, beaches, food, and scenic journeys through carefully selected destination photography.
+            </p>
+        </div>
+
+        <!-- Featured Story Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            
+            <!-- Card 1: Wild Safari (AUTHENTIC SRI LANKAN ELEPHANT) -->
+            <div class="glass-card rounded-3xl overflow-hidden group border border-white/10 hover:border-ceylon-gold transition flex flex-col justify-between">
+                <div>
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://destinationlesstravel.com/wp-content/uploads/2024/02/A-leopard-walks-past-a-jeep-in-Yala-National-Park.jpg.webp" alt="Sri Lankan Elephant Yala Safari" onerror="this.onerror=null; this.src='https://destinationlesstravel.com/wp-content/uploads/2024/02/A-leopard-walks-past-a-jeep-in-Yala-National-Park.jpg.webp';" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-ceylon-dark via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-ceylon-emerald/90 border border-ceylon-gold/40 text-ceylon-gold text-[10px] font-extrabold px-3 py-1 rounded-full uppercase">
+                            <i class="fa-solid fa-truck-monster mr-1"></i> Wildlife Safari Tour
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-lg font-bold text-white mb-2">Yala National Park Leopard Safari</h3>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Experience Sri Lanka's famous leopard country at Yala National Park, with open-vehicle safari routes through dry forest, grassland and wildlife habitat.
+                        </p>
+                    </div>
+                </div>
+                <div class="px-6 pb-6 pt-0 border-t border-white/10 flex items-center justify-between text-[11px] text-ceylon-gold font-bold">
+                    <span><i class="fa-solid fa-star text-amber-400"></i><i class="fa-solid fa-star text-amber-400"></i><i class="fa-solid fa-star text-amber-400"></i><i class="fa-solid fa-star text-amber-400"></i><i class="fa-solid fa-star text-amber-400"></i> Wildlife Experience</span>
+                    <span class="text-gray-400">Sri Lanka Experience</span>
+                </div>
+            </div>
+
+            <!-- Card 2: Temple Blessing (AUTHENTIC SRI LANKAN TEMPLE & MONK BLESSING) -->
+            <div class="glass-card rounded-3xl overflow-hidden group border border-white/10 hover:border-ceylon-gold transition flex flex-col justify-between">
+                <div>
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://lp-cms-production.imgix.net/2023-05/shutterstockRF_225287494.jpg" alt="Sacred Buddhist Temple Blessing Pirith Nula" onerror="this.onerror=null; this.src='https://lp-cms-production.imgix.net/2023-05/shutterstockRF_225287494.jpg';" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-ceylon-dark via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-ceylon-emerald/90 border border-ceylon-gold/40 text-ceylon-gold text-[10px] font-extrabold px-3 py-1 rounded-full uppercase">
+                            <i class="fa-solid fa-vihara mr-1"></i> Sacred Spiritual Blessings
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-lg font-bold text-white mb-2">Temple of the Sacred Tooth Relic — Kandy</h3>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Visit Kandy's Temple of the Sacred Tooth Relic, one of Sri Lanka's most important Buddhist heritage sites, and experience the city's living cultural traditions respectfully.
+                        </p>
+                    </div>
+                </div>
+                <div class="px-6 pb-6 pt-0 border-t border-white/10 flex items-center justify-between text-[11px] text-ceylon-gold font-bold">
+                    <span><i class="fa-solid fa-hands-praying text-ceylon-gold mr-1"></i> Cultural Immersion</span>
+                    <span class="text-gray-400">Kandy</span>
+                </div>
+            </div>
+
+            <!-- Card 3: Seafood Feast -->
+            <div class="glass-card rounded-3xl overflow-hidden group border border-white/10 hover:border-ceylon-gold transition flex flex-col justify-between">
+                <div>
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/6c/9b/4d/caption.jpg?h=1200&s=1&w=1200" alt="Seafood Lagoon Feast" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80';" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-ceylon-dark via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-ceylon-emerald/90 border border-ceylon-gold/40 text-ceylon-gold text-[10px] font-extrabold px-3 py-1 rounded-full uppercase">
+                            <i class="fa-solid fa-utensils mr-1"></i> Coastal Seafood Banquets
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-lg font-bold text-white mb-2">Sri Lankan Seafood by the Beach</h3>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Enjoy fresh seafood and tropical coastal dining beside Sri Lanka's Indian Ocean beaches.
+                        </p>
+                    </div>
+                </div>
+                <div class="px-6 pb-6 pt-0 border-t border-white/10 flex items-center justify-between text-[11px] text-ceylon-gold font-bold">
+                    <span><i class="fa-solid fa-wine-glass text-ceylon-gold mr-1"></i> Custom Dining</span>
+                    <span class="text-gray-400">Southern Coast</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Travel Experience Highlights Strip -->
+        <div class="glass-panel p-6 rounded-3xl border border-ceylon-gold/30 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center text-xs">
+            <div class="p-3 bg-black/40 rounded-2xl border border-white/10">
+                <i class="fa-solid fa-van-shuttle text-2xl text-ceylon-gold mb-2 block"></i>
+                <div class="font-extrabold text-white">Private Luxury AC Vehicles</div>
+                <div class="text-[10px] text-gray-400 mt-1">Dedicated Chauffeur Guide</div>
+            </div>
+            <div class="p-3 bg-black/40 rounded-2xl border border-white/10">
+                <i class="fa-solid fa-car-side text-2xl text-ceylon-gold mb-2 block"></i>
+                <div class="font-extrabold text-white">Local Tuk-Tuk City Rides</div>
+                <div class="text-[10px] text-gray-400 mt-1">Authentic Local Vibe</div>
+            </div>
+            <div class="p-3 bg-black/40 rounded-2xl border border-white/10">
+                <i class="fa-solid fa-plane-arrival text-2xl text-ceylon-gold mb-2 block"></i>
+                <div class="font-extrabold text-white">24/7 Airport Pickups</div>
+                <div class="text-[10px] text-gray-400 mt-1">Colombo BIA Direct Transfer</div>
+            </div>
+            <div class="p-3 bg-black/40 rounded-2xl border border-white/10">
+                <i class="fa-solid fa-heart-circle-check text-2xl text-ceylon-gold mb-2 block"></i>
+                <div class="font-extrabold text-white">100% Custom Freedom</div>
+                <div class="text-[10px] text-gray-400 mt-1">Flexible Daily Itineraries</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESTINATIONS & LIVE WEATHER SECTION -->
+    <section id="destinations" class="py-20 px-4 sm:px-8 max-w-7xl mx-auto bg-black/30 border-y border-white/10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div>
+                <span class="text-ceylon-gold text-xs font-extrabold uppercase tracking-widest block mb-2">Explore Ceylon Regions</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-white">Iconic Sri Lankan Destinations</h2>
+            </div>
+            <p class="text-xs sm:text-sm text-gray-400 max-w-md mt-4 md:mt-0">
+                Click on any destination to view regional weather highlights, key heritage attractions, and recommended travel months.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Destination 1: Sigiriya Lion Rock Fortress -->
+            <div onclick="openDestModal('sigiriya')" class="glass-card rounded-3xl overflow-hidden cursor-pointer group transition-all duration-500 relative">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1588598198321-9735fd52455b?auto=format&fit=crop&w=800&q=80" alt="Sigiriya Lion Rock Citadel" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=800&q=80';" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-ceylon-dark via-transparent to-transparent"></div>
+                    <span class="absolute top-4 left-4 bg-ceylon-emerald/90 border border-ceylon-gold/30 text-ceylon-gold text-[10px] font-extrabold px-3 py-1 rounded-full uppercase">Cultural Triangle</span>
+                    <span id="weather-sigiriya" class="weather-badge absolute top-4 right-4 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full flex items-center gap-1 shadow">
+                        <i class="fa-solid fa-temperature-three-quarters text-ceylon-gold"></i> 31°C Sunny
+                    </span>
+                </div>
+                <div class="p-6 relative">
+                    <h3 class="font-serif text-xl font-bold text-white group-hover:text-ceylon-gold transition">Sigiriya Lion Rock Citadel</h3>
+                    <p class="text-xs text-gray-400 mt-2 line-clamp-2">5th-century ancient fortress citadel rising 200m above lush green jungles with water gardens and frescoes.</p>
+                    <div class="mt-4 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-300 font-semibold">
+                        <span><i class="fa-solid fa-sun text-amber-400 mr-1"></i> Best: Jan - Sep</span>
+                        <span class="text-ceylon-gold font-bold">Explore <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destination 2: Ella Nine Arches Bridge (AUTHENTIC NINE ARCHES) -->
+            <div onclick="openDestModal('ella')" class="glass-card rounded-3xl overflow-hidden cursor-pointer group transition-all duration-500 relative">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://www.srilankainstyle.com/storage/app/media/Locations/Ella/ella-slider-8.jpg" alt="Nine Arches Bridge Ella Demodara Train" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=800&q=80';" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-ceylon-dark via-transparent to-transparent"></div>
+                    <span class="absolute top-4 left-4 bg-ceylon-emerald/90 border border-ceylon-gold/30 text-ceylon-gold text-[10px] font-extrabold px-3 py-1 rounded-full uppercase">Highlands</span>
+                    <span id="weather-ella" class="weather-badge absolute top-4 right-4 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full flex items-center gap-1 shadow">
+                        <i class="fa-solid fa-cloud-sun text-cyan-300"></i> 22°C Misty
+                    </span>
+                </div>
+                <div class="p-6 relative">
+                    <h3 class="font-serif text-xl font-bold text-white group-hover:text-ceylon-gold transition">Ella & Nine Arches Bridge</h3>
+                    <p class="text-xs text-gray-400 mt-2 line-clamp-2">Mountain village surrounded by rolling Ceylon tea estates, dramatic waterfalls, and world-famous blue train rides.</p>
+                    <div class="mt-4 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-300 font-semibold">
+                        <span><i class="fa-solid fa-cloud-sun text-amber-400 mr-1"></i> Best: Dec - Mar</span>
+                        <span class="text-ceylon-gold font-bold">Explore <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destination 3: Galle Dutch Fort (AUTHENTIC GALLE LIGHTHOUSE & FORT) -->
+            <div onclick="openDestModal('galle')" class="glass-card rounded-3xl overflow-hidden cursor-pointer group transition-all duration-500 relative">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://storage.googleapis.com/stateless-www-justwravel-com/2025/05/2710baec-galle-fort-sri-lanka.jpg" alt="Galle Dutch Fort Lighthouse" onerror="this.onerror=null; this.src='https://www.authenticindiatours.com/app/uploads/2022/04/A-cloudy-sunrise-at-coconut-tree-hill-in-the-western-province-of-Mirissa-Sri-Lanka.jpg';" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-ceylon-dark via-transparent to-transparent"></div>
+                    <span class="absolute top-4 left-4 bg-ceylon-emerald/90 border border-ceylon-gold/30 text-ceylon-gold text-[10px] font-extrabold px-3 py-1 rounded-full uppercase">Southern Heritage</span>
+                    <span id="weather-galle" class="weather-badge absolute top-4 right-4 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full flex items-center gap-1 shadow">
+                        <i class="fa-solid fa-water text-cyan-300"></i> 29°C Breeze
+                    </span>
+                </div>
+                <div class="p-6 relative">
+                    <h3 class="font-serif text-xl font-bold text-white group-hover:text-ceylon-gold transition">Galle Dutch Fort</h3>
+                    <p class="text-xs text-gray-400 mt-2 line-clamp-2">UNESCO colonial ramparts, cobblestone alleys, boutique artisan cafes, and ocean-facing bastion sunsets.</p>
+                    <div class="mt-4 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-300 font-semibold">
+                        <span><i class="fa-solid fa-sun text-amber-400 mr-1"></i> Best: Nov - Apr</span>
+                        <span class="text-ceylon-gold font-bold">Explore <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destination 4: Yala (AUTHENTIC SRI LANKAN ELEPHANT & LEOPARD WILDLIFE) -->
+            <div onclick="openDestModal('yala')" class="glass-card rounded-3xl overflow-hidden cursor-pointer group transition-all duration-500 relative">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://destinationlesstravel.com/wp-content/uploads/2024/02/A-leopard-walks-past-a-jeep-in-Yala-National-Park.jpg.webp" alt="Yala Wild Elephants Sri Lanka" onerror="this.onerror=null; this.src='https://destinationlesstravel.com/wp-content/uploads/2024/02/A-leopard-walks-past-a-jeep-in-Yala-National-Park.jpg.webp';" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-ceylon-dark via-transparent to-transparent"></div>
+                    <span class="absolute top-4 left-4 bg-ceylon-emerald/90 border border-ceylon-gold/30 text-ceylon-gold text-[10px] font-extrabold px-3 py-1 rounded-full uppercase">Wildlife Sanctuary</span>
+                    <span id="weather-yala" class="weather-badge absolute top-4 right-4 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full flex items-center gap-1 shadow">
+                        <i class="fa-solid fa-sun text-amber-400"></i> 32°C Warm
+                    </span>
+                </div>
+                <div class="p-6 relative">
+                    <h3 class="font-serif text-xl font-bold text-white group-hover:text-ceylon-gold transition">Yala National Park</h3>
+                    <p class="text-xs text-gray-400 mt-2 line-clamp-2">Highest density of leopards in the world, wild elephant herds, sloth bears, and coastal wilderness.</p>
+                    <div class="mt-4 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-300 font-semibold">
+                        <span><i class="fa-solid fa-paw text-amber-400 mr-1"></i> Best: Feb - Jul</span>
+                        <span class="text-ceylon-gold font-bold">Explore <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destination 5: Mirissa Beach -->
+            <div onclick="openDestModal('mirissa')" class="glass-card rounded-3xl overflow-hidden cursor-pointer group transition-all duration-500 relative">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://www.authenticindiatours.com/app/uploads/2022/04/A-cloudy-sunrise-at-coconut-tree-hill-in-the-western-province-of-Mirissa-Sri-Lanka.jpg" alt="Mirissa Beach Coconut Hill" onerror="this.onerror=null; this.src='https://www.authenticindiatours.com/app/uploads/2022/04/A-cloudy-sunrise-at-coconut-tree-hill-in-the-western-province-of-Mirissa-Sri-Lanka.jpg';" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-ceylon-dark via-transparent to-transparent"></div>
+                    <span class="absolute top-4 left-4 bg-ceylon-emerald/90 border border-ceylon-gold/30 text-ceylon-gold text-[10px] font-extrabold px-3 py-1 rounded-full uppercase">Beaches & Whales</span>
+                    <span id="weather-mirissa" class="weather-badge absolute top-4 right-4 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full flex items-center gap-1 shadow">
+                        <i class="fa-solid fa-umbrella-beach text-amber-300"></i> 30°C Coastal
+                    </span>
+                </div>
+                <div class="p-6 relative">
+                    <h3 class="font-serif text-xl font-bold text-white group-hover:text-ceylon-gold transition">Mirissa & Coconut Hill</h3>
+                    <p class="text-xs text-gray-400 mt-2 line-clamp-2">Golden crescent beaches, blue whale watching expeditions, surfing reefs, and vibrant beachside seafood dining.</p>
+                    <div class="mt-4 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-300 font-semibold">
+                        <span><i class="fa-solid fa-water text-cyan-400 mr-1"></i> Best: Nov - Apr</span>
+                        <span class="text-ceylon-gold font-bold">Explore <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destination 6: Kandy Kingdom (DALADA MALIGAWA / KANDY CITY) -->
+            <div onclick="openDestModal('kandy')" class="glass-card rounded-3xl overflow-hidden cursor-pointer group transition-all duration-500 relative">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://lp-cms-production.imgix.net/2023-05/shutterstockRF_225287494.jpg" alt="Kandy Temple of Tooth Relic Dalada Maligawa" onerror="this.onerror=null; this.src='https://lp-cms-production.imgix.net/2023-05/shutterstockRF_225287494.jpg';" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-ceylon-dark via-transparent to-transparent"></div>
+                    <span class="absolute top-4 left-4 bg-ceylon-emerald/90 border border-ceylon-gold/30 text-ceylon-gold text-[10px] font-extrabold px-3 py-1 rounded-full uppercase">Sacred Capital</span>
+                    <span id="weather-kandy" class="weather-badge absolute top-4 right-4 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full flex items-center gap-1 shadow">
+                        <i class="fa-solid fa-cloud text-gray-200"></i> 26°C Mild
+                    </span>
+                </div>
+                <div class="p-6 relative">
+                    <h3 class="font-serif text-xl font-bold text-white group-hover:text-ceylon-gold transition">Kandy Kingdom</h3>
+                    <p class="text-xs text-gray-400 mt-2 line-clamp-2">Home to the sacred Temple of the Tooth Relic, Royal Botanical Gardens, and hill country cultural dance performances.</p>
+                    <div class="mt-4 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-300 font-semibold">
+                        <span><i class="fa-solid fa-vihara text-amber-400 mr-1"></i> Best: Dec - Apr</span>
+                        <span class="text-ceylon-gold font-bold">Explore <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TOUR PACKAGES SECTION -->
+    <section id="tours" class="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <span class="text-ceylon-gold text-xs font-extrabold uppercase tracking-widest block">Signature Tour Packages</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-white">Handcrafted Ceylon Journeys</h2>
+            <p class="text-xs sm:text-sm text-gray-400">All packages include private AC vehicle, dedicated English-speaking chauffeur guide, boutique hotel stays, and entrance tickets.</p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-3 mb-10" id="tourFilterTabs">
+            <button onclick="filterTours('all')" data-filter="all" class="tour-tab active px-5 py-2 rounded-full text-xs font-extrabold bg-gradient-to-r from-ceylon-gold to-ceylon-cinnamon text-ceylon-dark shadow-ceylon-glow transition">All Tours</button>
+            <button onclick="filterTours('heritage')" data-filter="heritage" class="tour-tab px-5 py-2 rounded-full text-xs font-extrabold bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 transition">Heritage & Culture</button>
+            <button onclick="filterTours('safari')" data-filter="safari" class="tour-tab px-5 py-2 rounded-full text-xs font-extrabold bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 transition">Wildlife & Safaris</button>
+            <button onclick="filterTours('beach')" data-filter="beach" class="tour-tab px-5 py-2 rounded-full text-xs font-extrabold bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 transition">Coastal Luxury</button>
+            <button onclick="filterTours('grand')" data-filter="grand" class="tour-tab px-5 py-2 rounded-full text-xs font-extrabold bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 transition">Grand Ceylon (10+ Days)</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="tourCardsContainer">
+            
+            <!-- Tour 1 -->
+            <div class="tour-card glass-card rounded-3xl p-6 flex flex-col justify-between border border-white/10 relative" data-category="grand heritage">
+                <span class="absolute top-4 right-4 bg-ceylon-gold text-ceylon-dark font-black text-[10px] px-3 py-1 rounded-full uppercase tracking-wider">Most Popular</span>
+                <div>
+                    <div class="text-xs text-ceylon-gold font-bold uppercase tracking-wider mb-1">10 Days / 9 Nights</div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-2">Grand Essence of Ceylon</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed mb-4">Negombo • Sigiriya • Kandy • Ella Scenic Train • Yala Safari • Galle Fort • Bentota Beach.</p>
+                    
+                    <div class="space-y-2 py-3 border-y border-white/10 text-xs text-gray-300">
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-hotel text-ceylon-gold w-4"></i> 4★ & 5★ Boutique Hotel Stays</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-car text-ceylon-gold w-4"></i> Private Chauffeur & Luxury Vehicle</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-ticket text-ceylon-gold w-4"></i> First Class Scenic Train Pass</div>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] text-gray-400 uppercase font-bold block">From</span>
+                        <span class="text-xl font-extrabold text-gradient-gold price-tag" data-usd="1290">$1,290</span>
+                        <span class="text-[10px] text-gray-400">/ person</span>
+                    </div>
+                    <button onclick="addTourToInquiry('Grand Essence of Ceylon', 1290)" class="px-5 py-2.5 bg-ceylon-emerald hover:bg-ceylon-teal text-white font-bold text-xs uppercase tracking-wider rounded-xl border border-ceylon-gold/30 transition shadow-emerald-glow">
+                        Book Tour
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tour 2 -->
+            <div class="tour-card glass-card rounded-3xl p-6 flex flex-col justify-between border border-white/10 relative" data-category="heritage">
+                <div>
+                    <div class="text-xs text-ceylon-gold font-bold uppercase tracking-wider mb-1">5 Days / 4 Nights</div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-2">Royal Cultural Triangle</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed mb-4">Colombo • Dambulla Cave Temple • Sigiriya Citadel • Polonnaruwa Ancient Kingdom • Kandy Relic Temple.</p>
+                    
+                    <div class="space-y-2 py-3 border-y border-white/10 text-xs text-gray-300">
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-vihara text-ceylon-gold w-4"></i> UNESCO Monument Guiding</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-utensils text-ceylon-gold w-4"></i> Authentic Curry & Seafood Tastings</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-van-shuttle text-ceylon-gold w-4"></i> Colombo BIA Pickup & Drop Included</div>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] text-gray-400 uppercase font-bold block">From</span>
+                        <span class="text-xl font-extrabold text-gradient-gold price-tag" data-usd="680">$680</span>
+                        <span class="text-[10px] text-gray-400">/ person</span>
+                    </div>
+                    <button onclick="addTourToInquiry('Royal Cultural Triangle', 680)" class="px-5 py-2.5 bg-ceylon-emerald hover:bg-ceylon-teal text-white font-bold text-xs uppercase tracking-wider rounded-xl border border-ceylon-gold/30 transition shadow-emerald-glow">
+                        Book Tour
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tour 3 -->
+            <div class="tour-card glass-card rounded-3xl p-6 flex flex-col justify-between border border-white/10 relative" data-category="safari">
+                <div>
+                    <div class="text-xs text-ceylon-gold font-bold uppercase tracking-wider mb-1">7 Days / 6 Nights</div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-2">Wild Leopard & Ocean Safari</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed mb-4">Udawalawe Elephant Transit • Yala Leopard Safari • Mirissa Whale Cruise • Galle Ramparts.</p>
+                    
+                    <div class="space-y-2 py-3 border-y border-white/10 text-xs text-gray-300">
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-truck-monster text-ceylon-gold w-4"></i> Private 4x4 Jeep Safari & Ranger</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-ship text-ceylon-gold w-4"></i> Catamaran Whale Watching Charter</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-campground text-ceylon-gold w-4"></i> Luxury Tented Glamping Option</div>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] text-gray-400 uppercase font-bold block">From</span>
+                        <span class="text-xl font-extrabold text-gradient-gold price-tag" data-usd="980">$980</span>
+                        <span class="text-[10px] text-gray-400">/ person</span>
+                    </div>
+                    <button onclick="addTourToInquiry('Wild Leopard Safari', 980)" class="px-5 py-2.5 bg-ceylon-emerald hover:bg-ceylon-teal text-white font-bold text-xs uppercase tracking-wider rounded-xl border border-ceylon-gold/30 transition shadow-emerald-glow">
+                        Book Tour
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TRIP CALCULATOR -->
+    <section id="planner" class="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="glass-panel rounded-3xl p-6 sm:p-12 border border-ceylon-gold/30 relative overflow-hidden">
+            <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-ceylon-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+                <div class="lg:col-span-5 space-y-4">
+                    <span class="px-3 py-1 bg-ceylon-gold/20 border border-ceylon-gold/40 text-ceylon-gold text-[10px] font-extrabold rounded-full uppercase tracking-widest inline-block">
+                        Tailor-Made Journey Engine
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-white">Custom Ceylon Itinerary Calculator</h2>
+                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed font-light">
+                        Design your dream Sri Lankan vacation step-by-step. Adjust travel style, duration, and preferences to receive an instant estimated budget and custom itinerary plan.
+                    </p>
+
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-center gap-3 text-xs text-gray-200">
+                            <div class="w-8 h-8 rounded-full bg-ceylon-gold/20 border border-ceylon-gold text-ceylon-gold flex items-center justify-center font-bold">1</div>
+                            <span>Choose travel duration & traveler count</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-xs text-gray-200">
+                            <div class="w-8 h-8 rounded-full bg-ceylon-gold/20 border border-ceylon-gold text-ceylon-gold flex items-center justify-center font-bold">2</div>
+                            <span>Select preferred accommodation tier</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-xs text-gray-200">
+                            <div class="w-8 h-8 rounded-full bg-ceylon-gold/20 border border-ceylon-gold text-ceylon-gold flex items-center justify-center font-bold">3</div>
+                            <span>Pick must-see landmarks & experiences</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-black/60 p-6 sm:p-8 rounded-2xl border border-white/10 space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-xs uppercase font-bold text-ceylon-gold tracking-wider flex justify-between">
+                                <span>Trip Duration</span>
+                                <span id="calcDaysVal" class="text-white font-extrabold">7 Days</span>
+                            </label>
+                            <input type="range" id="calcDays" min="3" max="21" value="7" oninput="updateTripCalculator()" class="w-full mt-2 accent-ceylon-gold cursor-pointer">
+                        </div>
+
+                        <div>
+                            <label class="text-xs uppercase font-bold text-ceylon-gold tracking-wider flex justify-between">
+                                <span>Travelers</span>
+                                <span id="calcPaxVal" class="text-white font-extrabold">2 Adults</span>
+                            </label>
+                            <input type="range" id="calcPax" min="1" max="10" value="2" oninput="updateTripCalculator()" class="w-full mt-2 accent-ceylon-gold cursor-pointer">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="text-xs uppercase font-bold text-ceylon-gold tracking-wider block mb-2">Hotel & Villa Tier</label>
+                        <div class="grid grid-cols-3 gap-2 text-xs font-bold text-center">
+                            <button type="button" onclick="setTier('comfort')" id="tierComfort" class="tier-btn p-3 rounded-xl bg-white/5 border border-white/10 text-gray-300 hover:border-ceylon-gold">
+                                <i class="fa-solid fa-hotel block mb-1 text-sm text-ceylon-gold"></i>
+                                3★ Comfort
+                            </button>
+                            <button type="button" onclick="setTier('luxury')" id="tierLuxury" class="tier-btn active p-3 rounded-xl bg-ceylon-emerald border border-ceylon-gold text-white">
+                                <i class="fa-solid fa-crown block mb-1 text-sm text-ceylon-gold"></i>
+                                4★ - 5★ Luxury
+                            </button>
+                            <button type="button" onclick="setTier('ultra')" id="tierUltra" class="tier-btn p-3 rounded-xl bg-white/5 border border-white/10 text-gray-300 hover:border-ceylon-gold">
+                                <i class="fa-solid fa-gem block mb-1 text-sm text-ceylon-gold"></i>
+                                Ultra Villa
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="text-xs uppercase font-bold text-ceylon-gold tracking-wider block mb-2">Select Experiences to Include</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-[11px] font-semibold text-gray-300">
+                            <label class="flex items-center gap-2 p-2 bg-white/5 rounded-lg border border-white/10 cursor-pointer hover:border-ceylon-gold">
+                                <input type="checkbox" id="addTrain" onchange="updateTripCalculator()" checked class="accent-ceylon-gold">
+                                Ella Blue Train
+                            </label>
+                            <label class="flex items-center gap-2 p-2 bg-white/5 rounded-lg border border-white/10 cursor-pointer hover:border-ceylon-gold">
+                                <input type="checkbox" id="addSafari" onchange="updateTripCalculator()" checked class="accent-ceylon-gold">
+                                Yala Safari Jeep
+                            </label>
+                            <label class="flex items-center gap-2 p-2 bg-white/5 rounded-lg border border-white/10 cursor-pointer hover:border-ceylon-gold">
+                                <input type="checkbox" id="addCooking" onchange="updateTripCalculator()" class="accent-ceylon-gold">
+                                Village Cooking Class
+                            </label>
+                            <label class="flex items-center gap-2 p-2 bg-white/5 rounded-lg border border-white/10 cursor-pointer hover:border-ceylon-gold">
+                                <input type="checkbox" id="addWhales" onchange="updateTripCalculator()" class="accent-ceylon-gold">
+                                Mirissa Whale Tour
+                            </label>
+                            <label class="flex items-center gap-2 p-2 bg-white/5 rounded-lg border border-white/10 cursor-pointer hover:border-ceylon-gold">
+                                <input type="checkbox" id="addAyurveda" onchange="updateTripCalculator()" class="accent-ceylon-gold">
+                                Temple & Pirith Blessing
+                            </label>
+                            <label class="flex items-center gap-2 p-2 bg-white/5 rounded-lg border border-white/10 cursor-pointer hover:border-ceylon-gold">
+                                <input type="checkbox" id="addChauffeur" onchange="updateTripCalculator()" checked class="accent-ceylon-gold">
+                                Private Chauffeur
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-ceylon-emerald/30 border border-ceylon-gold/40 rounded-xl flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-gray-300 block">Estimated Total Investment</span>
+                            <span id="calcTotalCost" class="text-2xl font-black text-gradient-gold">$1,480 USD</span>
+                            <span class="text-[10px] text-gray-400 block">Includes stays, transfers & selected activities</span>
+                        </div>
+                        <button onclick="requestCustomPlan()" class="px-6 py-3 bg-gradient-to-r from-ceylon-gold to-ceylon-cinnamon text-ceylon-dark font-extrabold text-xs uppercase tracking-widest rounded-xl shadow-ceylon-glow hover:brightness-110 transition active:scale-95">
+                            Request Detailed Plan
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GOOGLE BUSINESS PROFILE & REVIEWS SECTION -->
+    <section class="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="glass-panel rounded-3xl p-8 border border-ceylon-gold/40 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
+            <div class="space-y-3 max-w-xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-extrabold uppercase">
+                    <i class="fa-brands fa-google text-ceylon-gold"></i> Google Business Profile
+                </div>
+                <h2 class="font-serif text-2xl sm:text-3xl font-extrabold text-white">Find Us On Google Maps</h2>
+                <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                    Visit our <strong>Google Business Profile</strong> to see our latest reviews, photos, location and contact details.
+                </p>
+                <div class="flex items-center gap-2 text-xs font-bold text-ceylon-gold pt-1">
+                    <i class="fa-solid fa-location-dot text-red-400"></i>
+                    <span>33/18 Somasundaram Road, Matale 21000, Sri Lanka</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
+                <a href="https://maps.app.goo.gl/njPTJAFHnewpwppy8?g_st=ac" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-amber-400 via-ceylon-gold to-amber-500 text-ceylon-dark font-black text-xs uppercase tracking-wider rounded-2xl shadow-ceylon-glow hover:brightness-110 transition text-center flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-google text-base"></i> View Google Business Profile
+                </a>
+                <a href="https://maps.google.com/?q=33,+18+Somasundaram+Rd,+Sri+Lanka" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs uppercase tracking-wider rounded-2xl transition text-center flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-map-location-dot text-ceylon-gold"></i> Get Directions
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAVEL ESSENTIALS & VERIFIED ETA VISA PORTAL -->
+    <section id="guide" class="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <div class="glass-card rounded-3xl p-6 border border-white/10 space-y-4 flex flex-col justify-between">
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3 text-ceylon-gold">
+                        <i class="fa-solid fa-passport text-2xl"></i>
+                        <h3 class="font-serif font-bold text-lg text-white">Official ETA Tourist Visa</h3>
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        Foreign visitors require an Electronic Travel Authorization (ETA). Apply directly on the official government portal before departure.
+                    </p>
+                    <div class="text-xs text-ceylon-gold font-bold">
+                        <i class="fa-solid fa-circle-check mr-1 text-emerald-400"></i> Direct Official Government Portal Link
+                    </div>
+                </div>
+
+                <a href="https://www.eta.gov.lk" target="_blank" rel="noopener noreferrer" class="w-full mt-4 py-2.5 px-4 bg-gradient-to-r from-ceylon-gold to-amber-500 text-ceylon-dark text-xs font-extrabold uppercase rounded-xl text-center shadow hover:brightness-110 transition">
+                    Apply Online at ETA.GOV.LK <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                </a>
+            </div>
+
+            <div class="glass-card rounded-3xl p-6 border border-white/10 space-y-4">
+                <div class="flex items-center gap-3 text-ceylon-gold">
+                    <i class="fa-solid fa-cloud-sun-rain text-2xl"></i>
+                    <h3 class="font-serif font-bold text-lg text-white">Year-Round Island Climate</h3>
+                </div>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                    Due to dual monsoon seasons, Sri Lanka is a year-round destination: West/South coast shines Nov-Apr, while East coast is sunny May-Sep.
+                </p>
+                <div class="text-xs text-ceylon-gold font-bold">
+                    <i class="fa-solid fa-temperature-three-quarters mr-1"></i> Coastal Avg: 28°C • Highlands Avg: 16°C
+                </div>
+            </div>
+
+            <div class="glass-card rounded-3xl p-6 border border-ceylon-gold/30 bg-ceylon-emerald/20 space-y-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3 text-ceylon-gold">
+                        <i class="fa-solid fa-coins text-2xl"></i>
+                        <h3 class="font-serif font-bold text-lg text-white">Live LKR Exchange Rates</h3>
+                    </div>
+                    <span id="liveRateStatus" class="text-[9px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-500/30">Auto Updated</span>
+                </div>
+                
+                <div class="space-y-2 text-xs">
+                    <div class="flex justify-between p-2 bg-black/40 rounded-lg">
+                        <span class="text-gray-300">1.00 USD</span>
+                        <span id="rate-usd" class="font-bold text-white">329.85 LKR</span>
+                    </div>
+                    <div class="flex justify-between p-2 bg-black/40 rounded-lg">
+                        <span class="text-gray-300">1.00 EUR</span>
+                        <span id="rate-eur" class="font-bold text-white">370.20 LKR</span>
+                    </div>
+                    <div class="flex justify-between p-2 bg-black/40 rounded-lg">
+                        <span class="text-gray-300">1.00 GBP</span>
+                        <span id="rate-gbp" class="font-bold text-white">418.50 LKR</span>
+                    </div>
+                    <div class="flex justify-between p-2 bg-black/40 rounded-lg">
+                        <span class="text-gray-300">1.00 AUD</span>
+                        <span id="rate-aud" class="font-bold text-white">215.40 LKR</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER WITH BRANDING & SECURITY COMPLIANCE -->
+    <footer class="bg-ceylon-dark border-t border-white/10 py-12 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-xs text-gray-400">
+            <div class="space-y-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 flex items-center justify-center">
+                        <svg viewBox="0 0 200 240" class="w-full h-full">
+                            <path d="M100 15 C130 35, 175 75, 160 140 C150 175, 115 195, 100 195 C80 195, 40 175, 35 130 Q30 85, 100 15 Z" fill="#FFC837" />
+                            <path d="M92 70 L108 70 L100 48 Z M85 92 C85 78, 115 78, 115 92 Z" fill="#08120F" />
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="logo-script text-xl text-gradient-gold block">Sri Lanka</span>
+                        <span class="text-[8px] font-black tracking-widest text-white uppercase block">TRAVEL & TOURISM</span>
+                    </div>
+                </div>
+                <p class="leading-relaxed text-[11px]">
+                    Official Sri Lankan Destination Management Company. Crafting tailor-made luxury, heritage, safari, and beach journeys across Ceylon.
+                </p>
+                <div class="text-[10px] text-ceylon-gold font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-shield-check text-emerald-400"></i>
+                    <span>Licensed Tour Operator #TA/2026/089</span>
+                </div>
+                <div class="pt-1">
+                    <a href="https://maps.app.goo.gl/njPTJAFHnewpwppy8?g_st=ac" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black/60 rounded-xl border border-amber-400/30 text-amber-300 font-bold hover:text-ceylon-gold transition">
+                        <i class="fa-brands fa-google text-ceylon-gold"></i>
+                        <span>5.0 ★ Google Business Site</span>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-white uppercase tracking-wider mb-3">Quick Navigation</h4>
+                <ul class="space-y-2">
+                    <li><a href="#destinations" class="hover:text-ceylon-gold transition">Sigiriya & Cultural Triangle</a></li>
+                    <li><a href="#destinations" class="hover:text-ceylon-gold transition">Ella & Highland Tea Trails</a></li>
+                    <li><a href="#destinations" class="hover:text-ceylon-gold transition">Galle Dutch Fort & Beaches</a></li>
+                    <li><a href="#destinations" class="hover:text-ceylon-gold transition">Yala Leopard Safaris</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-white uppercase tracking-wider mb-3">Official Visa & Protection</h4>
+                <ul class="space-y-2">
+                    <li><a href="https://www.eta.gov.lk" target="_blank" rel="noopener noreferrer" class="hover:text-ceylon-gold transition flex items-center gap-1.5"><i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-ceylon-gold"></i> Sri Lanka ETA Visa Portal</a></li>
+                    <li><a href="https://www.immigration.gov.lk" target="_blank" rel="noopener noreferrer" class="hover:text-ceylon-gold transition flex items-center gap-1.5"><i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-ceylon-gold"></i> Dept. of Immigration SL</a></li>
+                    <li><a href="https://maps.app.goo.gl/njPTJAFHnewpwppy8?g_st=ac" target="_blank" rel="noopener noreferrer" class="hover:text-ceylon-gold transition flex items-center gap-1.5"><i class="fa-brands fa-google text-[10px] text-ceylon-gold"></i> Google Business Listing</a></li>
+                    <li><span class="text-gray-400"><i class="fa-solid fa-lock text-emerald-400 mr-1"></i> Secure booking enquiry</span></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-white uppercase tracking-wider mb-3">Direct Contact</h4>
+                <p class="leading-relaxed">
+                    Sri Lanka Travel & Tourism Pvt Ltd.<br>
+                    <i class="fa-solid fa-location-dot text-ceylon-gold mr-1 mt-1"></i> 33/18 Somasundaram Road,<br>
+                    Matale 21000, Sri Lanka.<br>
+                    <i class="fa-solid fa-envelope text-ceylon-gold mt-2 mr-1"></i> info@srilankatravel.lk<br>
+                    <a href="https://wa.me/94727117111" target="_blank" rel="noopener noreferrer" class="hover:text-ceylon-gold transition inline-flex items-center gap-1.5 mt-1 font-bold text-white">
+                        <i class="fa-brands fa-whatsapp text-ceylon-gold text-sm"></i> +94 72 711 7111
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 mt-8 border-t border-white/10 text-center text-[11px] text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>© 2026 Sri Lanka Travel & Tourism. All Rights Reserved.</p>
+            <div class="flex items-center space-x-4 text-gray-400 text-sm">
+                <a href="https://maps.app.goo.gl/njPTJAFHnewpwppy8?g_st=ac" target="_blank" rel="noopener noreferrer" class="hover:text-ceylon-gold text-amber-400" title="Google Business Profile"><i class="fa-brands fa-google text-lg"></i></a>
+                <a href="https://wa.me/94727117111" target="_blank" rel="noopener noreferrer" class="hover:text-ceylon-gold text-ceylon-gold" title="Chat on WhatsApp"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/94727117111?text=Hello!%20I%20would%20like%20to%20inquire%20about%20a%20tour%20package%20in%20Sri%20Lanka." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 left-6 z-40 bg-emerald-600 hover:bg-emerald-500 text-white p-3.5 rounded-full shadow-2xl border-2 border-ceylon-gold/50 flex items-center justify-center gap-2 group transition-all duration-300 hover:scale-105" title="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+        <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 text-xs font-bold tracking-wide uppercase px-1">
+            Chat on WhatsApp
+        </span>
+    </a>
+
+    <!-- INQUIRY DRAWER WITH SECURE FORM SANITIZATION -->
+    <div id="inquiryDrawer" class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-ceylon-dark border-l border-ceylon-gold/30 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 shadow-2xl">
+        <div>
+            <div class="flex items-center justify-between pb-4 border-b border-white/10">
+                <h3 class="font-serif font-bold text-lg text-white uppercase flex items-center gap-2">
+                    <i class="fa-solid fa-suitcase-rolling text-ceylon-gold"></i> Selected Experiences
+                </h3>
+                <button onclick="toggleInquiryDrawer()" class="text-gray-400 hover:text-white text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div id="inquiryList" class="py-4 space-y-3">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </div>
+
+        <div class="pt-4 border-t border-white/10 space-y-4">
+            <!-- Security Honeypot Field (Hidden from human users) -->
+            <input type="text" id="sec_hp_field" class="hidden" tabindex="-1" autocomplete="off">
+
+            <div class="space-y-2">
+                <label class="text-[10px] uppercase font-bold text-ceylon-gold tracking-wider block">Your Name</label>
+                <input type="text" id="custName" maxlength="100" placeholder="John Doe" class="w-full bg-black/40 border border-white/10 rounded-xl p-2.5 text-xs text-white focus:border-ceylon-gold focus:outline-none">
+            </div>
+
+            <div class="space-y-2">
+                <label class="text-[10px] uppercase font-bold text-ceylon-gold tracking-wider block">Email or WhatsApp Number</label>
+                <input type="text" id="custContact" maxlength="100" placeholder="+1 234 567 890" class="w-full bg-black/40 border border-white/10 rounded-xl p-2.5 text-xs text-white focus:border-ceylon-gold focus:outline-none">
+            </div>
+
+            <button onclick="submitInquiry()" class="w-full py-3 bg-gradient-to-r from-ceylon-gold to-ceylon-cinnamon text-ceylon-dark font-extrabold text-xs uppercase tracking-widest rounded-xl shadow-ceylon-glow hover:brightness-110 transition active:scale-95 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-paper-plane"></i> Send Booking Inquiry
+            </button>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc8swlJmRF9v5dOnemQkigvVlCPXOANUL440s8M678nrC7l5g/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="w-full py-3 bg-white/10 hover:bg-white/15 border border-white/20 text-white font-bold text-xs uppercase tracking-widest rounded-xl transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-calendar-check text-ceylon-gold"></i> Open Booking Form
+            </a>
+            <div class="text-[9px] text-gray-400 text-center flex items-center justify-center gap-1">
+                <i class="fa-solid fa-lock text-emerald-400"></i> Your details are used only to prepare your travel enquiry
+            </div>
+        </div>
+    </div>
+
+    <!-- DESTINATION MODAL -->
+    <div id="destModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="w-full max-w-xl glass-panel rounded-3xl p-6 relative border border-ceylon-gold/40 text-white max-h-[90vh] overflow-y-auto">
+            <button onclick="closeDestModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div id="destModalContent">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedInquiries = [];
+        let activeTier = 'luxury';
+        let currentCurrency = 'USD';
+        let currencyRates = { USD: 1, EUR: 0.89, GBP: 0.78, AUD: 1.53, LKR: 329.85 };
+        let currencySymbols = { USD: '$', EUR: '€', GBP: '£', AUD: 'A$', LKR: 'Rs ' };
+
+        // DYNAMIC EXCHANGE RATE FETCHING WITH FALLBACK
+        async function fetchLiveRates() {
+            try {
+                const response = await fetch('https://open.er-api.com/v6/latest/USD');
+                if (!response.ok) throw new Error("Rate fetch failed");
+                const data = await response.json();
+                if (data && data.rates && data.rates.LKR) {
+                    currencyRates.LKR = data.rates.LKR;
+                    currencyRates.EUR = data.rates.EUR || 0.89;
+                    currencyRates.GBP = data.rates.GBP || 0.78;
+                    currencyRates.AUD = data.rates.AUD || 1.53;
+
+                    // Update UI rate card display
+                    document.getElementById('rate-usd').innerText = `${data.rates.LKR.toFixed(2)} LKR`;
+                    document.getElementById('rate-eur').innerText = `${(data.rates.LKR / data.rates.EUR).toFixed(2)} LKR`;
+                    document.getElementById('rate-gbp').innerText = `${(data.rates.LKR / data.rates.GBP).toFixed(2)} LKR`;
+                    document.getElementById('rate-aud').innerText = `${(data.rates.LKR / data.rates.AUD).toFixed(2)} LKR`;
+                    
+                    const statusTag = document.getElementById('liveRateStatus');
+                    if (statusTag) statusTag.innerText = 'Live Updated';
+                    updateCurrencySymbol();
+                }
+            } catch (err) {
+                console.log("Using baseline fallback LKR rates:", err);
+            }
+        }
+
+        // TONE.JS AMBIENT SOUND SYSTEM
+        let isAudioPlaying = false;
+        let ambientSynth = null;
+
+        function initAmbientAudio() {
+            if (!ambientSynth) {
+                ambientSynth = new Tone.PolySynth(Tone.Synth, {
+                    oscillator: { type: 'sine' },
+                    envelope: { attack: 2, decay: 1, sustain: 0.8, release: 3 }
+                }).toDestination();
+                ambientSynth.volume.value = -20;
+            }
+        }
+
+        function toggleAmbientSound() {
+            const icon = document.getElementById('soundIcon');
+            const label = document.getElementById('soundLabel');
+
+            if (!isAudioPlaying) {
+                Tone.start();
+                initAmbientAudio();
+                ambientSynth.triggerAttack(["E3", "B3", "F#4"]);
+                isAudioPlaying = true;
+                icon.className = "fa-solid fa-volume-high text-amber-400 animate-pulse";
+                label.innerText = "Playing";
+            } else {
+                if (ambientSynth) {
+                    ambientSynth.releaseAll();
+                }
+                isAudioPlaying = false;
+                icon.className = "fa-solid fa-volume-xmark text-ceylon-gold";
+                label.innerText = "Ceylon SFX";
+            }
+        }
+
+        function updateCurrencySymbol() {
+            const sel = document.getElementById('currSelect');
+            currentCurrency = sel.value;
+            const rate = currencyRates[currentCurrency];
+            const symbol = currencySymbols[currentCurrency];
+
+            const priceTags = document.querySelectorAll('.price-tag');
+            priceTags.forEach(tag => {
+                const usdVal = parseFloat(tag.dataset.usd);
+                const converted = Math.round(usdVal * rate);
+                tag.innerText = `${symbol}${converted.toLocaleString()}`;
+            });
+
+            updateTripCalculator();
+        }
+
+        function setTier(tier) {
+            activeTier = tier;
+            document.querySelectorAll('.tier-btn').forEach(btn => {
+                btn.className = "tier-btn p-3 rounded-xl bg-white/5 border border-white/10 text-gray-300 hover:border-ceylon-gold";
+            });
+
+            const activeBtn = document.getElementById(`tier${tier.charAt(0).toUpperCase() + tier.slice(1)}`);
+            if (activeBtn) {
+                activeBtn.className = "tier-btn active p-3 rounded-xl bg-ceylon-emerald border border-ceylon-gold text-white";
+            }
+            updateTripCalculator();
+        }
+
+        function updateTripCalculator() {
+            const days = parseInt(document.getElementById('calcDays').value);
+            const pax = parseInt(document.getElementById('calcPax').value);
+
+            document.getElementById('calcDaysVal').innerText = `${days} Days`;
+            document.getElementById('calcPaxVal').innerText = `${pax} Traveler${pax > 1 ? 's' : ''}`;
+
+            let baseRatePerDay = 120;
+            if (activeTier === 'luxury') baseRatePerDay = 210;
+            if (activeTier === 'ultra') baseRatePerDay = 380;
+
+            let total = days * baseRatePerDay * pax;
+
+            if (document.getElementById('addTrain').checked) total += 35 * pax;
+            if (document.getElementById('addSafari').checked) total += 85 * pax;
+            if (document.getElementById('addCooking').checked) total += 40 * pax;
+            if (document.getElementById('addWhales').checked) total += 75 * pax;
+            if (document.getElementById('addAyurveda').checked) total += 90 * pax;
+            if (document.getElementById('addChauffeur').checked) total += 45 * days;
+
+            const rate = currencyRates[currentCurrency];
+            const symbol = currencySymbols[currentCurrency];
+            const convertedTotal = Math.round(total * rate);
+
+            document.getElementById('calcTotalCost').innerText = `${symbol}${convertedTotal.toLocaleString()} ${currentCurrency}`;
+        }
+
+        function requestCustomPlan() {
+            const days = parseInt(document.getElementById('calcDays').value);
+            const pax = parseInt(document.getElementById('calcPax').value);
+            let baseRatePerDay = activeTier === 'comfort' ? 120 : (activeTier === 'luxury' ? 210 : 380);
+            let totalUsd = days * baseRatePerDay * pax;
+            if (document.getElementById('addTrain').checked) totalUsd += 35 * pax;
+            if (document.getElementById('addSafari').checked) totalUsd += 85 * pax;
+            if (document.getElementById('addCooking').checked) totalUsd += 40 * pax;
+            if (document.getElementById('addWhales').checked) totalUsd += 75 * pax;
+            if (document.getElementById('addAyurveda').checked) totalUsd += 90 * pax;
+            if (document.getElementById('addChauffeur').checked) totalUsd += 45 * days;
+
+            addTourToInquiry(`Tailor-Made Plan (${days} Days, ${pax} Pax, ${activeTier.toUpperCase()})`, totalUsd);
+        }
+
+        function toggleInquiryDrawer() {
+            const drawer = document.getElementById('inquiryDrawer');
+            drawer.classList.toggle('translate-x-full');
+        }
+
+        function addTourToInquiry(name, baseUsdPrice) {
+            selectedInquiries.push({ name, price: baseUsdPrice });
+            renderInquiryList();
+            toggleInquiryDrawer();
+        }
+
+        function renderInquiryList() {
+            const list = document.getElementById('inquiryList');
+            const badge = document.getElementById('inquiryBadge');
+            list.innerHTML = '';
+
+            badge.innerText = selectedInquiries.length;
+
+            if (selectedInquiries.length === 0) {
+                list.innerHTML = `<p class="text-xs text-gray-400 text-center py-6">No tour experiences added yet. Browse packages and add your favorites!</p>`;
+                return;
+            }
+
+            const rate = currencyRates[currentCurrency];
+            const symbol = currencySymbols[currentCurrency];
+
+            selectedInquiries.forEach((item, index) => {
+                const converted = Math.round(item.price * rate);
+                const row = document.createElement('div');
+                row.className = "flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/10";
+                row.innerHTML = `
+                    <div>
+                        <div class="font-bold text-xs text-white">${sanitizeHTML(item.name)}</div>
+                        <div class="text-[10px] text-ceylon-gold font-bold">${symbol}${converted.toLocaleString()}</div>
+                    </div>
+                    <button onclick="removeInquiry(${index})" class="text-gray-400 hover:text-red-400 text-xs px-2">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                `;
+                list.appendChild(row);
+            });
+        }
+
+        function removeInquiry(index) {
+            selectedInquiries.splice(index, 1);
+            renderInquiryList();
+        }
+
+        function sanitizeHTML(str) {
+            const temp = document.createElement('div');
+            temp.textContent = str;
+            return temp.innerHTML;
+        }
+
+        function submitInquiry() {
+            if (document.getElementById('sec_hp_field').value !== '') {
+                console.warn("Spam bot detected");
+                return;
+            }
+
+            const rawName = document.getElementById('custName').value.trim();
+            const rawContact = document.getElementById('custContact').value.trim();
+
+            if (!rawName || !rawContact) {
+                showToast("Please provide your name and contact details.");
+                return;
+            }
+
+            const cleanName = sanitizeHTML(rawName);
+            const cleanContact = sanitizeHTML(rawContact);
+
+            const waMsg = encodeURIComponent(`Hello Sri Lanka Travel & Tourism! My name is ${cleanName} (${cleanContact}). I am interested in booking my trip to Sri Lanka.`);
+            
+            showToast(`Ayubowan ${cleanName}! Redirecting to official WhatsApp concierge (+94 72 711 7111)...`);
+            
+            setTimeout(() => {
+                window.open(`https://wa.me/94727117111?text=${waMsg}`, '_blank', 'noopener,noreferrer');
+                selectedInquiries = [];
+                renderInquiryList();
+                toggleInquiryDrawer();
+            }, 1500);
+        }
+
+        function showToast(msg) {
+            const toast = document.createElement('div');
+            toast.className = "fixed bottom-6 right-6 z-50 bg-ceylon-emerald border border-ceylon-gold text-white p-4 rounded-2xl shadow-2xl text-xs max-w-xs animate-bounce flex items-center gap-2";
+            toast.innerHTML = `<i class="fa-solid fa-shield-check text-ceylon-gold"></i> <span>${msg}</span>`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 4500);
+        }
+
+        function filterTours(cat) {
+            const tabs = document.querySelectorAll('.tour-tab');
+            tabs.forEach(tab => {
+                const tabCat = tab.getAttribute('data-filter');
+                tab.className = tabCat === cat
+                    ? "tour-tab active px-5 py-2 rounded-full text-xs font-extrabold bg-gradient-to-r from-ceylon-gold to-ceylon-cinnamon text-ceylon-dark shadow-ceylon-glow transition"
+                    : "tour-tab px-5 py-2 rounded-full text-xs font-extrabold bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 transition";
+            });
+
+            const cards = document.querySelectorAll('.tour-card');
+            cards.forEach(card => {
+                if (cat === 'all' || card.dataset.category.includes(cat)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // DESTINATION MODAL DATA
+        const destData = {
+            sigiriya: {
+                title: "Sigiriya Lion Rock Citadel",
+                tag: "UNESCO World Heritage Site",
+                desc: "Climb the iconic 200-meter ancient granite fortress built by King Kashyapa in the 5th century. Admire famous water gardens, heavenly maiden frescoes, and sweeping views of endless emerald jungle.",
+                img: "https://images.unsplash.com/photo-1588598198321-9735fd52455b?auto=format&fit=crop&w=800&q=80",
+                highlights: ["5th Century Water Gardens & Fountains", "Mirror Wall & Ancient Graffitied Verses", "Panoramic Jungle Sunset Views"]
+            },
+            ella: {
+                title: "Ella & Nine Arches Bridge",
+                tag: "Highland Mountain Retreat",
+                desc: "Surrounded by misty green tea hills, Ella is Sri Lanka's trekking paradise. Ride the famous blue train through tea plantations and capture the iconic Nine Arches Railway Viaduct.",
+                img: "https://www.srilankainstyle.com/storage/app/media/Locations/Ella/ella-slider-8.jpg",
+                highlights: ["Nine Arches Viaduct Train Crossing", "Little Adam's Peak & Ella Rock Treks", "Ravana Waterfall & Tea Tasting"]
+            },
+            galle: {
+                title: "Galle Dutch Fort",
+                tag: "Colonial Ocean Fortress",
+                desc: "Built by the Portuguese and fortified by the Dutch in the 17th century, Galle Fort is a living colonial heritage city with cobbled streets, lighthouse walks, and ocean views.",
+                img: "https://storage.googleapis.com/stateless-www-justwravel-com/2025/05/2710baec-galle-fort-sri-lanka.jpg",
+                highlights: ["Historic Galle Lighthouse Bastion", "Boutique Gem Shops & Artisan Cafes", "Sunset Rampart Walks Over Indian Ocean"]
+            },
+            yala: {
+                title: "Yala National Park",
+                tag: "Wild Leopard Sanctuary",
+                desc: "Spread across 978 square kilometers of dry woodland and coastal lagoon, Yala holds the world's highest density of Sri Lankan leopards, wild elephants, peacocks, and sloth bears.",
+                img: "https://destinationlesstravel.com/wp-content/uploads/2024/02/A-leopard-walks-past-a-jeep-in-Yala-National-Park.jpg.webp",
+                highlights: ["4x4 Dawn Open Jeep Safari", "Leopard & Sloth Bear Tracking", "Wild Coast Tented Lodges"]
+            },
+            mirissa: {
+                title: "Mirissa & Coconut Tree Hill",
+                tag: "Tropical Palms & Whales",
+                desc: "Mirissa offers palm-lined golden sand bays, world-class whale watching for Blue Whales and Dolphins, reef surf breaks, and vibrant beachside seafood dining under the stars.",
+                img: "https://www.authenticindiatours.com/app/uploads/2022/04/A-cloudy-sunrise-at-coconut-tree-hill-in-the-western-province-of-Mirissa-Sri-Lanka.jpg",
+                highlights: ["Blue Whale & Spinner Dolphin Cruises", "Photogenic Coconut Tree Hill Headland", "Fresh Catch Seafood Grill Restaurants"]
+            },
+            kandy: {
+                title: "Kandy Sacred Hill Capital",
+                tag: "Cultural & Spiritual Heart",
+                desc: "Nestled among green mountains, Kandy was the last royal kingdom of Ceylon. It houses the revered Temple of the Sacred Tooth Relic and surrounds scenic Kandy Lake.",
+                img: "https://lp-cms-production.imgix.net/2023-05/shutterstockRF_225287494.jpg",
+                highlights: ["Sacred Temple of the Tooth Relic", "Peradeniya Royal Botanical Gardens", "Kandyan Fire Dance & Drumming Performances"]
+            }
+        };
+
+        function openDestModal(key) {
+            const data = destData[key];
+            if (!data) return;
+
+            const modalContent = document.getElementById('destModalContent');
+            modalContent.innerHTML = `
+                <div class="h-52 rounded-2xl overflow-hidden mb-4 relative">
+                    <img src="${data.img}" onerror="this.onerror=null; this.src='https://lp-cms-production.imgix.net/2023-05/shutterstockRF_225287494.jpg';" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <span class="absolute top-3 left-3 bg-ceylon-emerald border border-ceylon-gold text-ceylon-gold text-[10px] font-bold px-3 py-1 rounded-full uppercase">${data.tag}</span>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-white mb-2">${data.title}</h3>
+                <p class="text-xs text-gray-300 leading-relaxed mb-4">${data.desc}</p>
+                <div class="space-y-2 border-t border-white/10 pt-3 text-xs">
+                    <span class="font-bold text-ceylon-gold uppercase tracking-wider block">Key Highlights:</span>
+                    ${data.highlights.map(h => `<div class="flex items-center gap-2"><i class="fa-solid fa-star text-ceylon-gold text-[10px]"></i> ${h}</div>`).join('')}
+                </div>
+                <button onclick="closeDestModal()" class="w-full mt-6 py-2.5 bg-ceylon-emerald text-white text-xs font-bold uppercase rounded-xl border border-ceylon-gold/30">
+                    Close Destination Guide
+                </button>
+            `;
+
+            const modal = document.getElementById('destModal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeDestModal() {
+            const modal = document.getElementById('destModal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function executeTourSearch() {
+            const category = document.getElementById('searchCategory').value;
+            const duration = document.getElementById('searchDuration').value;
+            const destination = document.getElementById('searchDest').value;
+            const toursSection = document.getElementById('tours');
+
+            toursSection.scrollIntoView({ behavior: 'smooth' });
+            filterTours(category === 'all' ? 'all' : category);
+
+            document.querySelectorAll('.tour-card').forEach(card => {
+                const matchesCategory = category === 'all' || card.dataset.category.includes(category);
+                const text = card.innerText.toLowerCase();
+                const matchesDestination = destination === 'all' ||
+                    (destination === 'sigiriya' && text.includes('sigiriya')) ||
+                    (destination === 'ella' && text.includes('ella')) ||
+                    (destination === 'galle' && text.includes('galle')) ||
+                    (destination === 'yala' && (text.includes('yala') || text.includes('udawalawe'))) ||
+                    (destination === 'mirissa' && text.includes('mirissa'));
+                const matchesDuration = duration === 'any' ||
+                    (duration === 'short' && /[3-5] Days/.test(card.innerText)) ||
+                    (duration === 'medium' && /(?:7|8|9|10) Days/.test(card.innerText)) ||
+                    (duration === 'long' && /(?:1[2-6]) Days/.test(card.innerText));
+                card.style.display = matchesCategory && matchesDestination && matchesDuration ? 'flex' : 'none';
+            });
+        }
+
+        window.onload = function() {
+            fetchLiveRates();
+            updateTripCalculator();
+            renderInquiryList();
+        };
+    </script>
+</body>
+</html>
